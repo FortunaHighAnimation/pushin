@@ -19,13 +19,13 @@ describe('getBreakpointIndex', function () {
     global.window = dom.window;
     global.document = window.document;
 
-    const container = document.querySelector('.pushin');
+    const container = document.querySelector<HTMLElement>('.pushin');
     this.pushIn = new PushIn(container);
-    this.pushIn.breakpoints = [0, 768, 1440, 1920];
+    this.pushIn.sceneOptions.breakpoints = [0, 768, 1440, 1920];
   });
 
   it('Should return 0 by default', function () {
-    this.pushIn.breakpoints = [];
+    this.pushIn.sceneOptions.breakpoints = [];
     const result = this.pushIn.getBreakpointIndex();
     result.should.equal(0);
   });

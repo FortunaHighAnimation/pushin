@@ -73,19 +73,21 @@ block content
 							a(href='simple.html') Simple - Zero configuration
 						li
 							a(href='responsive.html') Responsive design
+						li
+							a(href='cat.html') Building scenes with images - The cat
 		main
 			section.pushin.bg-secondary.bg-opacity-25(style="z-index:-1")
-				div.pushin-scene(data-pushin-from='200')
-					div.pushin-layer(data-pushin-to='1000')
+				div.pushin-scene
+					div.pushin-layer
 						div.card.bg-info.bg-gradient.shadow-lg.position-absolute.demo-card-1
 							div.card-body.fs-1.fw-bold.p-5 Scroll to push in
-					div.pushin-layer(data-pushin-from='700', data-pushin-to='2500')
+					div.pushin-layer
 						div.card.bg-warning.bg-gradient.shadow-lg.position-absolute.demo-card-2
 							div.card-body.fs-1.fw-bold.p-5 Each layer can come into view at different times.
-					div.pushin-layer(data-pushin-from='1500', data-pushin-to='3000')
+					div.pushin-layer
 						div.card.bg-gradient.text-light.shadow-lg.position-absolute.demo-card-3
 							div.card-body.fs-1.fw-bold.p-5 Use HTML data-attributes to control the timing and speed of each layer.
-					div.pushin-layer(data-pushin-from='2000', data-pushin-to='6000' data-pusin-speed='25')
+					div.pushin-layer
 						div.position-absolute.fs-1.fw-bold.p-5 PushIn.js
 			section.container-fluid.py-5.bg-white
 				div.row.justify-content-center
@@ -109,11 +111,28 @@ block content
 						h2 How can I use it on my site?
 						p
 							| Check out the 
-							a(href="https://github.com/nateplusplus/pushIn-js") GitHub README
+							a(href="https://github.com/nateplusplus/pushin") GitHub README
 							|  to learn more about how to use this on your own projects.
 					div.col-10.col-lg-7.pt-4
 						h2 What do I do if I'm experiencing an issue?
 						p
 							| Please submit a 
-							a(href="https://github.com/nateplusplus/pushIn-js/issues/new?assignees=&labels=&template=bug_report.md&title=") bug report
+							a(href="https://github.com/nateplusplus/pushin/issues/new?assignees=&labels=&template=bug_report.md&title=") bug report
 							|  so I can put on my detective hat and look into it further!
+block scripts
+	script( defer ).
+		var pushInOptions = {
+			scene: {
+				breakpoints: [768, 1440, 1920, 2560],
+				inpoints: [200],
+			},
+			layerOptions: [
+				{ outpoints: [1000] },
+				{ inpoints: [700], outpoints: [2500] },
+				{ inpoints: [1500], outpoints: [3000] },
+				{ inpoints: [2000], outpoints: [6000], speed: 25 },
+			],
+		};
+		document.addEventListener( 'DOMContentLoaded', function() {
+			pushInStart(pushInOptions);
+		} );
