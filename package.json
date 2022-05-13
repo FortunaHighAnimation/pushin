@@ -1,5 +1,5 @@
 {
-  "name": "pushin",
+  "name": "@liarco/pushin",
   "description": "A javascript plugin to attach a 'dolly' or 'push-in' effect to a div element when user scrolls.",
   "version": "4.1.0",
   "sideEffects": true,
@@ -48,7 +48,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nateplusplus/pushin.git"
+    "url": "git+https://github.com/liarco/pushin.git"
   },
   "keywords": [
     "parallax",
